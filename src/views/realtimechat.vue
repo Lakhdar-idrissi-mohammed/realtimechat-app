@@ -1,6 +1,10 @@
 <template>
-    <div class="container">
-  <h3 class=" text-center">Messaging here</h3>
+  <span
+    id="blackOverlay"
+    class=" w-full h-full absolute opacity-75 bg-black"
+  ></span>
+  <div class="  px-4 py-24 ">
+  <h3 class=" font-bold justify-center text-center pb-5 ">Chat App</h3>
   <div class="messaging">
         <div class="inbox_msg">
           <div class="inbox_people">
@@ -37,46 +41,8 @@
                   </div>
                 </div>
               </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                  <div class="chat_ib">
-                    <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                    <p>Test, which is a new approach to have all solutions
-                      astrology under one roof.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                  <div class="chat_ib">
-                    <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                    <p>Test, which is a new approach to have all solutions
-                      astrology under one roof.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                  <div class="chat_ib">
-                    <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                    <p>Test, which is a new approach to have all solutions
-                      astrology under one roof.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                  <div class="chat_ib">
-                    <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                    <p>Test, which is a new approach to have all solutions
-                      astrology under one roof.</p>
-                  </div>
-                </div>
-              </div>
+
+
               <div class="chat_list">
                 <div class="chat_people">
                   <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
@@ -174,27 +140,22 @@
             })
 
       this.fetchMessages();
-    },
-
-    beforeRouteEnter(to,from,next) {
-
-        next(vm=>{
-            firebase.auth().onAuthStateChanged(user=>{
-              if(user){
-                next();
-              }else{
-                vm.$router.push('/login')
-              }
-            })
-        })
     }
+
+
 
   }
   </script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-  .container{max-width:1170px; margin:auto;}
+  .container{
+    max-width:1170px;
+     margin:auto;
+
+     padding-top: 200px;
+
+  }
   img{ max-width:100%;}
   .inbox_people {
     background: #f8f8f8 none repeat scroll 0 0;
