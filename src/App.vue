@@ -1,5 +1,5 @@
 <template>
-  <NavbarComponent></NavbarComponent>
+  <NavbarComponent/>
 
   <router-view/>
 </template>
@@ -9,7 +9,7 @@
   export default {
     name: "landing-page",
     components: {
-      NavbarComponent,
+      NavbarComponent
 
     }
 

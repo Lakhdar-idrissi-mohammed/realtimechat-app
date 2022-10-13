@@ -18,10 +18,16 @@
         </ul>
 
           <div class="flex items-center">
-            <button @click="CheckStatus"
+            <a v-if="loggedin"
               class="bg-white text-gray-800 lg:hover:text-gray-800  text-xs font-bold uppercase px-4 py-2 rounded shadow  outline-none  "
+              href="/login"
+              > Login
+          </a>
+          <a  v-if="!loggedin"
+              class="bg-white text-gray-800 lg:hover:text-gray-800  text-xs font-bold uppercase px-4 py-2 rounded shadow  outline-none  "
+              href="/chat"
               > Chat !
-          </button>
+        </a>
         </div>
 
       </div>
@@ -32,18 +38,24 @@
   import firebase from 'firebase';
 
   export default {
-    methods:{
-     CheckStatus(){
-      firebase.auth().onAuthStateChanged(user=>{
-              if(user){
-                this.$router.push('/chat')
-              }else{
-                this.$router.push('/login')
-              }
-            })
-     }
+    data(){
+       return {
+        loggedin:true
+       }
 
-    }
+    },
+    created(){
+
+        firebase.auth().onAuthStateChanged(user=>{
+                if(user){
+                  this.loggedin=false
+                }else{
+                  this.loggedin=true
+                }
+              })
+
+
+        }
 
   }
   </script>

@@ -80,14 +80,17 @@
           </div>
         </div>
       </div></div>
-
+      <FooterComponent/>
   </template>
 
   <script>
-
+    import FooterComponent from "../components/Footer.vue";
     import firebase from 'firebase';
   export default {
     name: 'realtimechat',
+    components: {
+      FooterComponent
+    },
     data(){
        return {
         message:null,
