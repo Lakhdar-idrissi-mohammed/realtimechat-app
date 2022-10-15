@@ -1,13 +1,13 @@
 <template>
-  <span
+  <!-- <span
     id="blackOverlay"
     class=" w-full h-full absolute opacity-75 bg-black"
-  ></span>
-  <div class="  px-4 py-24 ">
-  <h3 class=" font-bold justify-center text-center pb-5 ">Chat App</h3>
-  <div class="messaging">
+  ></span> -->
+  <div class=" px-4 py-24 opacity-75 bg-black">
+  <h3 class=" text-white font-bold justify-center text-center pb-5 ">TweetyChat</h3>
+  <div class="messaging ">
         <div class="inbox_msg">
-          <div class="inbox_people">
+          <div class="inbox_people ">
             <div class="headind_srch">
               <div class="recent_heading">
                 <h4>Recent</h4>
@@ -58,23 +58,17 @@
           <div class="mesgs">
             <div class="msg_history">
               <div v-for="message in messages" >
-                <div  :class="[message.author===authUser.displayName?'sent_msg':'received_msg']">
-                  <div  class="received_withd_msg">
+                <div  :class="[message.author==authUser.displayName?'sent_msg':'received_withd_msg']">
                     <p>{{message.message}}</p>
-                    <span class="time_date">{{message.author}}</span></div>
+                    <span class="time_date">{{message.author}}</span>
                 </div>
               </div>
-              <!-- <div class="outgoing_msg">
-                <div class="sent_msg">
-                  <p>Apollo University, Delhi, India Test</p>
-                  <span class="time_date"> 11:01 AM    |    Today</span> </div>
-              </div> -->
 
             </div>
             <div class="type_msg">
               <div class="input_msg_write">
-                <input @keyup.enter="SaveMessage" v-model="message" type="text" class="write_msg" placeholder="Type a message" />
-                <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                <input @keyup.enter="SaveMessage" v-model="message" type="text" class="write_msg text-white" placeholder="Type a message" />
+                <button @click="SaveMessage" class="msg_send_btn text-white font-bold uppercase  items-center justify-center inline-flex " type="button"><i >send</i></button>
               </div>
             </div>
           </div>
@@ -224,20 +218,20 @@
     display: inline-block;
     width: 6%;
   }
-  .received_msg {
+  /* .received_msg {
     display: inline-block;
     padding: 0 0 0 10px;
     vertical-align: top;
     width: 92%;
-   }
+   } */
    .received_withd_msg p {
     background: #ebebeb none repeat scroll 0 0;
+    font-weight: bold;
     border-radius: 3px;
-    color: #646464;
     font-size: 14px;
     margin: 0;
     padding: 5px 10px 5px 12px;
-    width: 100%;
+    width: 60%;
   }
   .time_date {
     color: #747474;
@@ -245,7 +239,7 @@
     font-size: 12px;
     margin: 8px 0 0;
   }
-  .received_withd_msg { width: 57%;}
+  .received_withd_msg {float: left; width: 92%;}
   .mesgs {
     float: left;
     padding: 30px 15px 0 25px;
@@ -253,17 +247,18 @@
   }
 
    .sent_msg p {
-    background: #05728f none repeat scroll 0 0;
+    background: cyan none repeat scroll 0 0;
     border-radius: 3px;
     font-size: 14px;
-    margin: 0; color:#fff;
+    font-weight: bold;
     padding: 5px 10px 5px 12px;
-    width:100%;
+    width: 80%;
+
   }
   .outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
   .sent_msg {
     float: right;
-    width: 60%;
+    width: 92%;
   }
   .input_msg_write input {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
