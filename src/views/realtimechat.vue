@@ -4,7 +4,7 @@
     class=" w-full h-full absolute opacity-75 bg-black"
   ></span> -->
   <div class=" px-4 py-24 opacity-75 bg-black">
-  <h3 class=" text-white font-bold justify-center text-center pb-5 ">TweetyChat</h3>
+  <h3 class=" justify-center text-center pb-5 text-white font-bold ">TweetyChat</h3>
   <div class="messaging ">
         <div class="inbox_msg">
           <div class="inbox_people ">
@@ -58,7 +58,7 @@
           <div class="mesgs">
             <div class="msg_history">
               <div v-for="message in messages" >
-                <div  :class="[message.author==authUser.displayName?'sent_msg':'received_withd_msg']">
+                <div  :class="[message.author==authUser.displayName?' sent_msg ':'received_withd_msg']">
                     <p>{{message.message}}</p>
                     <span class="time_date">{{message.author}}</span>
                 </div>
@@ -247,19 +247,22 @@
   }
 
    .sent_msg p {
-    background: cyan none repeat scroll 0 0;
+    background: #00ffff none repeat scroll 0 0;
+    font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    font-weight: bold;
+    margin: 0;
     padding: 5px 10px 5px 12px;
-    width: 80%;
+    width: 60%;
 
   }
   .outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
   .sent_msg {
-    float: right;
-    width: 92%;
+    float: right; width: 92%;
+    margin-right: -300px;
+
   }
+
   .input_msg_write input {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: medium none;
@@ -286,6 +289,7 @@
   .messaging { padding: 0 0 50px 0;}
   .msg_history {
     height: 516px;
+    overflow-x: hidden;
     overflow-y: auto;
   }
   </style>

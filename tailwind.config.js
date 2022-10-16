@@ -2,13 +2,15 @@
 module.exports = {
   content: [
     "./public/index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js"
+    "./src/**/*.{vue,js,ts,jsx,tsx}"
+
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'cyan-cus': '#00ffff',
+      },
+    }
   },
-  plugins: [
-    require('flowbite/plugin')
-  ],
+  plugins: []
 }
