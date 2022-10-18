@@ -6,7 +6,7 @@
   <div class=" px-4 py-24 opacity-75 bg-black">
   <h3 class=" justify-center text-center pb-5 text-white font-bold ">TweetyChat</h3>
   <div class="messaging ">
-        <div class="inbox_msg">
+        <div class="clear-both overflow-hidden rounded border border-gray-500 border-solid">
           <div class="inbox_people ">
             <div class="headind_srch">
               <div class="recent_heading">
@@ -21,17 +21,7 @@
               </div>
             </div>
             <div class="inbox_chat">
-              <div class="chat_list active_chat">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                  <div class="chat_ib">
-                    <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                    <p>Test, which is a new approach to have all solutions
-                      astrology under one roof.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
+              <div @click="active=!active ; scrollToBottom()"  :class="[!active?' chat_list cursor-pointer ':'chat_list active_chat cursor-pointer']">
                 <div class="chat_people">
                   <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                   <div class="chat_ib">
@@ -42,8 +32,7 @@
                 </div>
               </div>
 
-
-              <div class="chat_list">
+              <!-- <div class="chat_list">
                 <div class="chat_people">
                   <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                   <div class="chat_ib">
@@ -52,11 +41,12 @@
                       astrology under one roof.</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
-          <div class="mesgs">
-            <div class="msg_history">
+          <div v-if="!active" > <img class="w-3/5 h-602px" src="@/assets/img/zbe.jpg" > </div>
+          <div v-show="active" class="mesgs">
+            <div class="msg_history  ">
               <div v-for="message in messages" >
                 <div  :class="[message.author==authUser.displayName?' sent_msg ':'received_withd_msg']">
                     <p>{{message.message}}</p>
@@ -66,10 +56,8 @@
 
             </div>
             <div class="type_msg">
-              <div class="input_msg_write">
-                <input @keyup.enter="SaveMessage" v-model="message" type="text" class="write_msg text-white" placeholder="Type a message" />
-                <button @click="SaveMessage" class="msg_send_btn text-white font-bold uppercase  items-center justify-center inline-flex " type="button"><i >send</i></button>
-              </div>
+                <input  @keyup.enter="SaveMessage" v-model="message" type="text" class="text-white font-bold  bg-transparent w-full h-full py-3 pl-3 text-base" placeholder="Type a message" />
+                <button @click="SaveMessage" class="msg_send_btn text-white font-bold uppercase rounded-full items-center justify-center inline-flex " type="button"><i >send</i></button>
             </div>
           </div>
         </div>
@@ -87,6 +75,7 @@
     },
     data(){
        return {
+        active: false,
         message:null,
         messages:[],
         authUser:[]
@@ -94,12 +83,21 @@
 
     },
     methods:{
+      ShowConv(){
+
+      }
+      ,
+
       scrollToBottom(){
-        let box=document.querySelector('.msg_history');
+        setTimeout(() => {
+          let box=document.querySelector('.msg_history');
          box.scrollTop=box.scrollHeight;
+
+          },500);
 
       },
       SaveMessage(){
+       if(this.message.trim()){
          db.collection('chat').add({
              message:this.message,
              createdAt: new Date(),
@@ -107,6 +105,7 @@
          }).then(()=>{
           this.scrollToBottom();
          })
+        }
          this.message=null;
       },
 
@@ -155,16 +154,13 @@
   }
   img{ max-width:100%;}
   .inbox_people {
-    background: #f8f8f8 none repeat scroll 0 0;
+    background: white;
     float: left;
     overflow: hidden;
     width: 40%; border-right:1px solid #c4c4c4;
+
   }
-  .inbox_msg {
-    border: 1px solid #c4c4c4;
-    clear: both;
-    overflow: hidden;
-  }
+
   .top_spac{ margin: 20px 0 0;}
 
 
@@ -263,22 +259,9 @@
 
   }
 
-  .input_msg_write input {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: medium none;
-    color: #4c4c4c;
-    font-size: 15px;
-    min-height: 48px;
-    width: 100%;
-  }
-
   .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
   .msg_send_btn {
-    background: #05728f none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
+    background: #3c77c5;
     font-size: 17px;
     height: 33px;
     position: absolute;

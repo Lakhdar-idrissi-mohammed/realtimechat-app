@@ -10,6 +10,12 @@ module.exports = {
       colors: {
         'cyan-cus': '#00ffff',
       },
+      backgroundImage: {
+
+      },
+      height: {
+        '602px': '37.7rem',
+      },
     }
   },
   plugins: []
