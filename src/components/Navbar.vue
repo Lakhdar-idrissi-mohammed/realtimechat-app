@@ -4,16 +4,17 @@
     <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
 
       <div  class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-        <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-        href="/">TweetyChat </a>
+
+          <img class=" relative -top-0.5 -left-5 w-24 " src="@/assets/img/logo.png" >
+
       </div>
 
       <div class="lg:flex flex-grow items-center lg:bg-transparent lg:shadow-none">
 
         <ul class="flex flex-col lg:flex-row list-none mr-auto">
           <li class="flex items-center">
-            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="">About</a>
+            <a class=" font-bold leading-relaxed inline-block text-lg py-2 -ml-9 whitespace-nowrap text-white"
+        href="/">TweetyChat </a>
           </li>
         </ul>
 
