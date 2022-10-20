@@ -3,10 +3,11 @@
     id="blackOverlay"
     class=" w-full h-full absolute opacity-75 bg-black"
   ></span> -->
-  <div class=" px-4 py-24 opacity-75 bg-black">
-  <div class=" top-0" >
+  <div class=" px-4 py-24 bg-opacity-75 bg-black">
+    <div class=" top-0" >
     <img class=" justify-center items-center absolute w-24 -top-2 left-1/2 -ml-28 " src="@/assets/img/logo.png" >
   <h3 class=" justify-center text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
+
 </div>
 
   <div class="messaging ">
