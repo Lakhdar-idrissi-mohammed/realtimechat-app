@@ -8,7 +8,6 @@ import 'firebase/auth';
 import './index.css';
 
 
-
 // Required for side-effects
 require("firebase/firestore");
 

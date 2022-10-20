@@ -4,9 +4,13 @@
     class=" w-full h-full absolute opacity-75 bg-black"
   ></span> -->
   <div class=" px-4 py-24 opacity-75 bg-black">
-  <h3 class=" justify-center text-center pb-5 text-white font-bold ">TweetyChat</h3>
+  <div class=" top-0" >
+    <img class=" justify-center items-center absolute w-24 -top-2 left-1/2 -ml-28 " src="@/assets/img/logo.png" >
+  <h3 class=" justify-center text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
+</div>
+
   <div class="messaging ">
-        <div class="clear-both overflow-hidden rounded border border-gray-500 border-solid">
+        <div class="clear-both overflow-hidden rounded border h-720px border-gray-500 border-solid">
           <div class="inbox_people ">
             <div class="headind_srch">
               <div class="recent_heading">
@@ -44,7 +48,7 @@
               </div> -->
             </div>
           </div>
-          <div v-if="!active" > <img class="w-3/5 h-602px" src="@/assets/img/zbe.jpg" > </div>
+          <div v-if="!active" > <img class="w-3/5 h-720px" src="@/assets/img/zbe.jpg" > </div>
           <div v-show="active" class="mesgs">
             <div class="msg_history  ">
               <div v-for="message in messages" >
@@ -66,6 +70,7 @@
   </template>
 
   <script>
+
     import FooterComponent from "../components/Footer.vue";
     import firebase from 'firebase';
   export default {
@@ -83,6 +88,7 @@
 
     },
     methods:{
+
       ShowConv(){
 
       }
@@ -101,6 +107,7 @@
          db.collection('chat').add({
              message:this.message,
              createdAt: new Date(),
+
              author:this.authUser.displayName
          }).then(()=>{
           this.scrollToBottom();
@@ -158,6 +165,7 @@
     float: left;
     overflow: hidden;
     width: 40%; border-right:1px solid #c4c4c4;
+    height: inherit;
 
   }
 
@@ -243,7 +251,7 @@
   }
 
    .sent_msg p {
-    background: #00ffff none repeat scroll 0 0;
+    background: #fffb13 none repeat scroll 0 0;
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
@@ -259,7 +267,7 @@
 
   }
 
-  .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+  .type_msg {border-top: 1px solid #c4c4c4;position: relative; max-height: 500px;}
   .msg_send_btn {
     background: #3c77c5;
     font-size: 17px;
@@ -271,7 +279,7 @@
   }
   .messaging { padding: 0 0 50px 0;}
   .msg_history {
-    height: 516px;
+    height: 630px;
     overflow-x: hidden;
     overflow-y: auto;
   }

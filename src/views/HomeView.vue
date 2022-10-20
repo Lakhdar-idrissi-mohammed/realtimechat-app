@@ -1,6 +1,6 @@
 <template>
     <div>
-
+      <NavbarComponent/>
       <main>
         <div
           class="relative pt-16 pb-32 flex content-center items-center justify-center"
@@ -253,10 +253,12 @@
   <script>
   import firebase from 'firebase';
   import FooterComponent from "../components/Footer.vue";
+  import NavbarComponent from "@/components/Navbar.vue";
   export default {
     name: "landing-page",
     components: {
-      FooterComponent
+      FooterComponent,
+      NavbarComponent
     }
     // beforeRouteEnter(to,from,next) {
 
