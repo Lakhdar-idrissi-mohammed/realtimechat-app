@@ -5,8 +5,8 @@
   ></span> -->
   <div class=" px-4 py-24 bg-opacity-75 bg-black">
     <div class=" top-0" >
-    <img class=" justify-center items-center absolute w-24 -top-2 left-1/2 -ml-28 " src="@/assets/img/logo.png" >
-  <h3 class=" justify-center text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
+    <img @click="ToHome()" class=" justify-center items-center absolute w-24 -top-2 left-1/2 -ml-28 cursor-pointer " src="@/assets/img/logo.png" >
+  <h3 @click="ToHome()" class=" cursor-pointer justify-center text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
 
 </div>
 
@@ -28,11 +28,10 @@
             <div class="inbox_chat">
               <div @click="active=!active ; scrollToBottom()"  :class="[!active?' chat_list cursor-pointer ':'chat_list active_chat cursor-pointer']">
                 <div class="chat_people">
-                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                  <div class="chat_ib">
-                    <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                    <p>Test, which is a new approach to have all solutions
-                      astrology under one roof.</p>
+                  <div class="chat_img  "> <img class="rounded-full " src="@/assets/img/uffuff.jpg" alt="sunil"> </div>
+                  <div  class="chat_ib">
+                    <h5>Uff Uff returns <span class="chat_date"></span></h5>
+                    <p  v-for="lastmessage in lastmessages" >{{lastmessage.message}}</p>
                   </div>
                 </div>
               </div>
@@ -49,13 +48,13 @@
               </div> -->
             </div>
           </div>
-          <div v-if="!active" > <img class="w-3/5 h-720px" src="@/assets/img/zbe.jpg" > </div>
+          <div v-if="!active" > <img class="w-3/5 h-720px" src="@/assets/img/default.jpg" > </div>
           <div v-show="active" class="mesgs">
             <div class="msg_history  ">
               <div v-for="message in messages" >
                 <div  :class="[message.author==authUser.displayName?' sent_msg ':'received_withd_msg']">
                     <p>{{message.message}}</p>
-                    <span class="time_date">{{message.author}}</span>
+                    <span class="time_date">{{message.author}},{{message.createdHours}}:{{message.createdMinutes}}</span>
                 </div>
               </div>
 
@@ -84,14 +83,15 @@
         active: false,
         message:null,
         messages:[],
-        authUser:[]
+        authUser:[],
+        lastmessage:null,
+        lastmessages:[],
        }
 
     },
     methods:{
-
-      ShowConv(){
-
+      ToHome(){
+        this.$router.push('/')
       }
       ,
 
@@ -108,7 +108,8 @@
          db.collection('chat').add({
              message:this.message,
              createdAt: new Date(),
-
+             createdHours: new Date().getHours(),
+             createdMinutes: new Date().getMinutes(),
              author:this.authUser.displayName
          }).then(()=>{
           this.scrollToBottom();
@@ -131,7 +132,17 @@
 
           },1000);
   })
-      }
+      },
+      fetchLastMessage(){
+        db.collection('chat').orderBy("createdAt","desc").limit(1).onSnapshot((querySnapshot) => {
+          let allLastmessages=[];
+          querySnapshot.forEach(doc => {
+          allLastmessages.push(doc.data())
+      })
+          this.lastmessages=allLastmessages
+
+  })
+      },
     },
     created(){
 
@@ -144,6 +155,7 @@
             })
 
       this.fetchMessages();
+      this.fetchLastMessage();
     }
 
 
@@ -202,6 +214,7 @@
   .chat_img {
     float: left;
     width: 11%;
+
   }
   .chat_ib {
     float: left;

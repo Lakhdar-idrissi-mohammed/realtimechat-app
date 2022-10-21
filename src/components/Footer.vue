@@ -9,26 +9,25 @@
             Find us on any of these platforms, we respond 1-2 business days.
           </h5>
           <div class="mt-6">
-            <button
-              class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-              type="button"
-            >
-              <i></i></button
-            ><button
-              class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-              type="button"
-            >
-              <i class="flex fab fa-facebook-square"></i></button
-            ><button
-              class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-              type="button"
-            >
-              <i class="flex fab fa-dribbble"></i></button
-            ><button
-              class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
-              type="button"
-            >
-              <i class="flex fab fa-github"></i>
+            <button @click="toLink('https://www.facebook.com/profile.php?id=100085896084455')"
+              class="bg-blue-600 text-white font-extrabold text-2xl h-10 w-10 items-center justify-center align-center rounded-full  mr-2 p-3"
+              type="button" >
+              <p class="-mt-2">f</p>
+            </button>
+            <button @click="toLink('https://www.facebook.com/profile.php?id=100085896084455')"
+              class="bg-blue-600 text-white font-extrabold text-2xl h-10 w-10 items-center justify-center align-center rounded-full  mr-2 p-3"
+              type="button" >
+              <p class="-mt-2">f</p>
+            </button>
+            <button @click="toLink('https://www.facebook.com/profile.php?id=100085896084455')"
+              class="bg-blue-600 text-white font-extrabold text-2xl h-10 w-10 items-center justify-center align-center rounded-full  mr-2 p-3"
+              type="button" >
+              <p class="-mt-2">f</p>
+            </button>
+            <button @click="toLink('https://www.facebook.com/profile.php?id=100085896084455')"
+              class="bg-blue-600 text-white font-extrabold text-2xl h-10 w-10 items-center justify-center align-center rounded-full  mr-2 p-3"
+              type="button" >
+              <p class="-mt-2">f</p>
             </button>
           </div>
         </div>
@@ -39,43 +38,14 @@
                 class="block uppercase text-gray-600 text-sm font-semibold mb-2"
                 >Useful Links</span
               >
-              <ul class="list-unstyled">
-                <li>
-                  <a
-                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                    href="https://www.creative-tim.com/presentation"
-                    >About Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                    href="https://blog.creative-tim.com"
-                    >Blog</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                    href="https://www.github.com/creativetimofficial"
-                    >Github</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                    href="https://www.creative-tim.com/bootstrap-themes/free"
-                    >Free Products</a
-                  >
-                </li>
-              </ul>
+
             </div>
             <div class="w-full lg:w-4/12 px-4">
               <span
                 class="block uppercase text-gray-600 text-sm font-semibold mb-2"
                 >Other Resources</span
               >
-              <ul class="list-unstyled">
+              <!-- <ul class="list-unstyled">
                 <li>
                   <a
                     class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
@@ -104,7 +74,7 @@
                     >Contact Us</a
                   >
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -115,11 +85,11 @@
       >
         <div class="w-full md:w-4/12 px-4 mx-auto text-center">
           <div class="text-sm text-gray-600 font-semibold py-1">
-            Copyright © {{date}} Tailwind Starter Kit by
+            Copyright © {{date}}
             <a
               href="https://www.creative-tim.com"
               class="text-gray-600 hover:text-gray-900"
-              >Creative Tim</a
+              ></a
             >.
           </div>
         </div>
@@ -132,6 +102,13 @@ export default {
   data() {
     return {
       date: new Date().getFullYear()
+
+
+    }
+  },
+  methods:{
+    toLink(path){
+      window.location.href = path
     }
   }
 }

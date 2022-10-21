@@ -7,8 +7,7 @@
           style="min-height: 75vh;"
         >
           <div
-            class="absolute top-0 w-full h-full bg-center bg-cover"
-            style='background-image: url("https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80");'
+            class="absolute top-0 w-full h-full bg-center bg-cover bg-Welcome-img"
           >
             <span
               id="blackOverlay"
@@ -20,12 +19,11 @@
               <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div class="pr-12">
                   <h1 class="text-white font-semibold text-5xl">
-                    Your story starts with us.
+                    Your Private Online Chat !
                   </h1>
                   <p class="mt-4 text-lg text-gray-300">
-                    This is a simple example of a Landing Page you can build using
-                    Tailwind Starter Kit. It features multiple CSS components
-                    based on the Tailwindcss design system.
+                    This is a simple online chat platform for Teams and companies .
+                     Working with firebase Realtime Database.
                   </p>
                 </div>
               </div>
@@ -35,38 +33,19 @@
         <section class="pb-20 bg-gray-300 -mt-24">
           <div class="container mx-auto px-4">
             <div class="flex flex-wrap">
-              <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+              <div class=" mt-16 w-full md:w-4/12 px-4 text-center">
                 <div
                   class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
                 >
-                  <div class="px-4 py-5 flex-auto">
+                  <div class="px-6 py-8 flex-auto">
                     <div
-                      class="text-white font-bold uppercase  items-center justify-center inline-flex w-12 h-12 mb-4 -mt-3 rounded-full bg-red-400"
+                      class="text-white font-bold uppercase  items-center justify-center inline-flex w-12 h-12 mb-3 -mt-3 rounded-full bg-red-400"
                     >
-                    <i>nik</i>
+                    <i>TP</i>
                     </div>
-                    <h6 class="text-xl font-semibold">Awarded Agency</h6>
+                    <h6 class="text-xl font-semibold">Totally Private</h6>
                     <p class="mt-2 mb-0 text-gray-600">
-                      Divide details about your product or agency work into parts.
-                      A paragraph describing a feature will be enough.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="w-full md:w-4/12 px-4 text-center">
-                <div
-                  class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
-                >
-                  <div class="px-4 py-5 flex-auto">
-                    <div
-                      class="text-white font-bold uppercase p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-3 -mt-3 rounded-full bg-blue-400"
-                    >
-                      <i>zbe</i>
-                    </div>
-                    <h6 class="text-xl font-semibold">Free Revisions</h6>
-                    <p class="mt-2 mb-0 text-gray-600">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                      Localhost Platform to chat privatly with your Team or inside a company.
                     </p>
                   </div>
                 </div>
@@ -75,16 +54,32 @@
                 <div
                   class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
                 >
-                  <div class="px-4 py-5 flex-auto">
+                  <div class="px-6 py-8 flex-auto">
+                    <div
+                      class="text-white font-bold uppercase p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-3 -mt-3 rounded-full bg-blue-400"
+                    >
+                      <i>CFS</i>
+                    </div>
+                    <h6 class="text-xl font-semibold">Cloud firestore</h6>
+                    <p class="mt-2 mb-0 text-gray-600">
+                      Using Cloud firestore to keep your data accessible and easly managable.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class=" mt-16 w-full md:w-4/12 px-4 text-center">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+                >
+                  <div class="px-6 py-8 flex-auto">
                     <div
                       class="text-white font-bold uppercase inline-flex items-center justify-center w-12 h-12 mb-3 -mt-3 shadow-lg rounded-full bg-green-400"
                     >
-                      <i> ty </i>
+                      <i>GA</i>
                     </div>
-                    <h6 class="text-xl font-semibold">Verified Company</h6>
+                    <h6 class="text-xl font-semibold">Google Authentification</h6>
                     <p class="mt-2 mb-0 text-gray-600">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                      Using Google Authentification to make the login easy and secure !
                     </p>
                   </div>
                 </div>
@@ -99,11 +94,7 @@
             <div class="flex flex-wrap justify-center text-center mb-24">
               <div class="w-full lg:w-6/12 px-4">
                 <h2 class="text-4xl font-semibold">Here are our heroes</h2>
-                <p class="text-lg leading-relaxed m-4 text-gray-600">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record maximum.
-                </p>
+
               </div>
             </div>
             <div class="flex flex-wrap">
@@ -111,12 +102,12 @@
                 <div class="px-6">
                   <img
                     alt="..."
-                    src="../assets/img/team-1-800x800.jpg"
-                    class="shadow-lg rounded-full max-w-full mx-auto"
+                    src="../assets/img/Med.jpg"
+                    class="shadow-lg rounded-full max-w-full  mx-auto"
                     style="max-width: 120px;"
                   />
                   <div class="pt-6 text-center">
-                    <h5 class="text-xl font-bold">Ryan Tompson</h5>
+                    <h5 class="text-xl font-bold">Med Lakhdar Idrissi</h5>
                     <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                       Web Developer
                     </p>
@@ -145,12 +136,12 @@
                 <div class="px-6">
                   <img
                     alt="..."
-                    src="../assets/img/team-2-800x800.jpg"
+                    src="../assets/img/Absent.png"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
                   <div class="pt-6 text-center">
-                    <h5 class="text-xl font-bold">Romina Hadid</h5>
+                    <h5 class="text-xl font-bold">Me</h5>
                     <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                       Marketing Specialist
                     </p>
@@ -174,12 +165,12 @@
                 <div class="px-6">
                   <img
                     alt="..."
-                    src="../assets/img/team-3-800x800.jpg"
+                    src="../assets/img/Absent.png"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
                   <div class="pt-6 text-center">
-                    <h5 class="text-xl font-bold">Alexa Smith</h5>
+                    <h5 class="text-xl font-bold">Me</h5>
                     <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                       UI/UX Designer
                     </p>
@@ -208,12 +199,12 @@
                 <div class="px-6">
                   <img
                     alt="..."
-                    src="../assets/img/team-4-470x470.png"
+                    src="../assets/img/Absent.png"
                     class="shadow-lg rounded-full max-w-full mx-auto"
                     style="max-width: 120px;"
                   />
                   <div class="pt-6 text-center">
-                    <h5 class="text-xl font-bold">Jenna Kardi</h5>
+                    <h5 class="text-xl font-bold">Me</h5>
                     <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
                       Founder and CEO
                     </p>

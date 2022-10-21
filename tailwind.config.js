@@ -11,7 +11,7 @@ module.exports = {
         'cyan-cus': '#00ffff',
       },
       backgroundImage: {
-
+        'Welcome-img': "url('/src/assets/img/Welcome.jpg')"
       },
       height: {
         '602px': '37.7rem',
