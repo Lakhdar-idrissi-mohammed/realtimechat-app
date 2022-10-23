@@ -45,7 +45,7 @@
                     </div>
                     <h6 class="text-xl font-semibold">Totally Private</h6>
                     <p class="mt-2 mb-0 text-gray-600">
-                      Localhost Platform to chat privatly with your Team or inside a company.
+                      Localhost/Online Platform to chat privatly with your Team or inside a company.
                     </p>
                   </div>
                 </div>
