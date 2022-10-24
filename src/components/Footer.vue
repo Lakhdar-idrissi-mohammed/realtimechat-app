@@ -14,7 +14,7 @@
               type="button" >
               <p class="-mt-2">f</p>
             </button>
-            <button @click="toLink('https://www.facebook.com/profile.php?id=100085896084455')"
+            <!-- <button @click="toLink('https://www.facebook.com/profile.php?id=100085896084455')"
               class="bg-blue-600 text-white font-extrabold text-2xl h-10 w-10 items-center justify-center align-center rounded-full  mr-2 p-3"
               type="button" >
               <p class="-mt-2">f</p>
@@ -28,7 +28,7 @@
               class="bg-blue-600 text-white font-extrabold text-2xl h-10 w-10 items-center justify-center align-center rounded-full  mr-2 p-3"
               type="button" >
               <p class="-mt-2">f</p>
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="w-full lg:w-6/12 px-4">

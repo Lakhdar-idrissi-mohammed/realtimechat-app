@@ -4,14 +4,14 @@
     class=" w-full h-full absolute opacity-75 bg-black"
   ></span> -->
   <div class=" px-4 py-24 bg-opacity-75 bg-black">
-    <div class=" top-0" >
+    <div class=" top-0 mb-0.5" >
     <img @click="ToHome()" class=" justify-center items-center absolute w-24 -top-2 left-1/2 -ml-28 cursor-pointer " src="@/assets/img/logo.png" >
-  <h3 @click="ToHome()" class=" cursor-pointer justify-center text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
+  <h3 @click="ToHome()" class=" w-fit flex  cursor-pointer justify-center ml-735px text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
 
 </div>
 
   <div class="messaging ">
-        <div class="clear-both overflow-hidden rounded border h-720px border-gray-500 border-solid">
+        <div class="clear-both overflow-hidden rounded border-3 h-720px border-white shadow-neon-white  border-solid ">
           <div class="inbox_people ">
             <div class="headind_srch">
               <div class="recent_heading">
@@ -30,8 +30,8 @@
                 <div class="chat_people">
                   <div class="chat_img  "> <img class="rounded-full " src="@/assets/img/uffuff.jpg" alt="sunil"> </div>
                   <div  class="chat_ib">
-                    <h5>Uff Uff returns <span class="chat_date"></span></h5>
-                    <p  v-for="lastmessage in lastmessages" >{{lastmessage.message}}</p>
+                    <h class=" text-lg font-medium" >Uff Uff returns</h>
+                    <p class=" text-sm mt-1 font-extralight" v-for="lastmessage in lastmessages" >{{lastmessage.message}}</p>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
             </div>
             <div class="type_msg">
                 <input  @keyup.enter="SaveMessage" v-model="message" type="text" class="text-white font-bold  bg-transparent w-full h-full py-3 pl-3 text-base" placeholder="Type a message" />
-                <button @click="SaveMessage" class="msg_send_btn text-white font-bold uppercase rounded-full items-center justify-center inline-flex " type="button"><i >send</i></button>
+                <button @click="SaveMessage" class="msg_send_btn   text-white font-bold uppercase rounded-full items-center justify-center inline-flex " type="button"><i >send</i></button>
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@
   .top_spac{ margin: 20px 0 0;}
 
 
-  .recent_heading {float: left; width:40%;}
+  .recent_heading {float: left; width:40%; cursor: default; }
   .srch_bar {
     display: inline-block;
     text-align: right;
@@ -194,7 +194,7 @@
   .headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
 
   .recent_heading h4 {
-    color: #05728f;
+    color: black;
     font-size: 21px;
     margin: auto;
   }
@@ -208,9 +208,7 @@
   }
   .srch_bar .input-group-addon { margin: 0 0 0 -27px;}
 
-  .chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
-  .chat_ib h5 span{ font-size:13px; float:right;}
-  .chat_ib p{ font-size:14px; color:#989898; margin:auto}
+
   .chat_img {
     float: left;
     width: 11%;
@@ -283,7 +281,8 @@
 
   .type_msg {border-top: 1px solid #c4c4c4;position: relative; max-height: 500px;}
   .msg_send_btn {
-    background: #3c77c5;
+
+    background-color: #757575;
     font-size: 17px;
     height: 33px;
     position: absolute;

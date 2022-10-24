@@ -1,5 +1,5 @@
 <template>
-  <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
+  <nav class="top-0  absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 ">
 
     <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
 
@@ -9,7 +9,7 @@
 
       </div>
 
-      <div class="lg:flex flex-grow items-center lg:bg-transparent lg:shadow-none">
+      <div class="lg:flex  flex-grow items-center lg:bg-transparent lg:shadow-none">
 
         <ul class="flex flex-col lg:flex-row list-none mr-auto">
           <li class="flex items-center">
@@ -20,12 +20,12 @@
 
           <div class="flex items-center">
             <a v-if="loggedin"
-              class="bg-white text-gray-800 lg:hover:text-gray-800  text-xs font-bold uppercase px-4 py-2 rounded shadow  outline-none  "
+              class="bg-transparent border-2 border-solid border-tweety-color hover:border-white text-tweety-color lg:hover:text-white shadow-neon-current text-xs font-extrabold uppercase px-4 py-2 rounded outline-none "
               href="/login"
               > Login
           </a>
           <a  v-if="!loggedin"
-              class="bg-white text-gray-800 lg:hover:text-gray-800  text-xs font-bold uppercase px-4 py-2 rounded shadow  outline-none  "
+              class=" bg-transparent border-2 border-solid border-tweety-color hover:border-white  text-tweety-color lg:hover:text-white shadow-neon-current text-xs font-extrabold uppercase px-4 py-2 rounded outline-none  "
               href="/chat"
               > Chat !
         </a>
