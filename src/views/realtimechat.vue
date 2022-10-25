@@ -4,9 +4,10 @@
     class=" w-full h-full absolute opacity-75 bg-black"
   ></span> -->
   <div class=" px-4 py-24 bg-opacity-75 bg-black">
-    <div class=" top-0 mb-0.5" >
+    <div class=" top-0 -mb-4" >
     <img @click="ToHome()" class=" justify-center items-center absolute w-24 -top-2 left-1/2 -ml-28 cursor-pointer " src="@/assets/img/logo.png" >
-  <h3 @click="ToHome()" class=" w-fit flex  cursor-pointer justify-center ml-735px text-center pb-5 text-white font-bold -mt-16 ">TweetyChat</h3>
+  <h3 @click="ToHome()" class=" justify-center items-center absolute w-24 top-8 left-1/2 -ml-8 cursor-pointer text-white font-bold  ">TweetyChat</h3>
+  <!-- w-fit flex  cursor-pointer absolute justify-center ml-735px text-center pb-5 text-white font-bold -mt-16 -->
 
 </div>
 
