@@ -2,7 +2,7 @@
     <div>
       <NavbarComponent/>
       <main>
-        <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
+
         <div
           class="relative pt-16 pb-32 flex content-center items-center justify-center"
           style="min-height: 75vh;"
@@ -238,6 +238,7 @@
             </div>
           </div>
         </section>
+        <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
       </main>
       <FooterComponent></FooterComponent>
     </div>
