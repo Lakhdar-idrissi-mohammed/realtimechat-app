@@ -68,7 +68,6 @@
       </div></div>
       <FooterComponent/>
   </template>
-
   <script>
 
     import FooterComponent from "../components/Footer.vue";
@@ -80,6 +79,7 @@
     },
     data(){
        return {
+        adsenseContent: '',
         active: false,
         message:null,
         messages:[],
@@ -88,6 +88,9 @@
         lastmessages:[],
        }
 
+    },
+    mounted(){
+      this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     },
     methods:{
       ToHome(){
