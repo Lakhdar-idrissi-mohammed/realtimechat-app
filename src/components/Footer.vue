@@ -45,8 +45,8 @@
                 class="block uppercase text-gray-600 text-sm font-semibold mb-2"
                 >Other Resources</span
               >
-              <!-- <ul class="list-unstyled">
-                <li>
+              <ul class="list-unstyled">
+                <!-- <li>
                   <a
                     class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                     href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
@@ -59,22 +59,22 @@
                     href="https://creative-tim.com/terms"
                     >Terms &amp; Conditions</a
                   >
-                </li>
+                </li> -->
                 <li>
                   <a
                     class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                    href="https://creative-tim.com/privacy"
+                    href="https://www.privacypolicygenerator.info/live.php?token=t7sOsi7vKqX79OiK7iQ3V07EAYj1aTOi"
                     >Privacy Policy</a
                   >
                 </li>
-                <li>
+                <!-- <li>
                   <a
                     class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
                     href="https://creative-tim.com/contact-us"
                     >Contact Us</a
                   >
-                </li>
-              </ul> -->
+                </li> -->
+              </ul>
             </div>
           </div>
         </div>
