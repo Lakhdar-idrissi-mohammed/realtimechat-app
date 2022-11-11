@@ -49,20 +49,26 @@
               </div> -->
             </div>
           </div>
-          <div v-if="!active" > <img class="w-3/5 h-720px" src="@/assets/img/default.jpg" > </div>
+          <div v-if="!active" > <img style="width: 70%;" class=" h-720px" src="@/assets/img/default.jpg" > </div>
           <div v-show="active" class="mesgs">
             <div class="msg_history  ">
               <div v-for="message in messages" >
                 <div  :class="[message.author==authUser.displayName?' sent_msg ':'received_withd_msg']">
                     <p>{{message.message}}</p>
                     <span class="time_date">{{message.author}},{{message.createdHours}}:{{message.createdMinutes}}</span>
+
                 </div>
               </div>
 
             </div>
             <div class="type_msg">
-                <input  @keyup.enter="SaveMessage" v-model="message" type="text" class="text-white font-bold  bg-transparent w-full h-full py-3 pl-3 text-base" placeholder="Type a message" />
-                <button @click="SaveMessage" class="msg_send_btn   text-white font-bold uppercase rounded-full items-center justify-center inline-flex " type="button"><i >send</i></button>
+                <input  @keyup.enter="SaveMessage" v-model="message" type="text" class="text-white font-bold outline-none bg-transparent w-full h-full py-3 pl-3 text-base" placeholder="Type a message" />
+                <div>
+                  <input style="display: none" ref="fileinput" type="file" @change="onFileChange">
+                  <img v-if="photo" :src="photo" @click="removeImage" class="">
+                </div>
+                <img class=" -left-10 -mt-9 cursor-pointer absolute "  src="@/assets/img/attach.png" @click="$refs.fileinput.click()">
+                <img @click="SaveMessage" src="@/assets/img/send.png" class="msg_send_btn  cursor-pointer  ">
             </div>
           </div>
         </div>
@@ -71,7 +77,6 @@
       <FooterComponent/>
   </template>
   <script>
-
     import FooterComponent from "../components/Footer.vue";
     import firebase from 'firebase';
   export default {
@@ -81,6 +86,7 @@
     },
     data(){
        return {
+        photo: null,
         adsenseContent: '',
         active: false,
         message:null,
@@ -95,6 +101,23 @@
       this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     },
     methods:{
+      onFileChange (e) {
+        const files = e.target.files || e.dataTransfer.files
+        if (!files.length) return
+        this.createImage(files[0])
+      },
+      createImage (file) {
+        const reader = new FileReader()
+        const vm = this
+
+        reader.onload = (e) => {
+          vm.photo = e.target.result
+        }
+        reader.readAsDataURL(file)
+      },
+      removeImage (e) {
+        this.photo = null
+      },
       ToHome(){
         this.$router.push('/')
       }
@@ -115,7 +138,8 @@
              createdAt: new Date(),
              createdHours: new Date().getHours(),
              createdMinutes: new Date().getMinutes(),
-             author:this.authUser.displayName
+             author:this.authUser.displayName,
+
          }).then(()=>{
           this.scrollToBottom();
          })
@@ -180,6 +204,7 @@
   }
   </script>
 
+
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
   .container{
@@ -194,7 +219,7 @@
     background: white;
     float: left;
     overflow: hidden;
-    width: 40%; border-right:1px solid #c4c4c4;
+    width: 30%; border-right:1px solid #c4c4c4;
     height: inherit;
 
   }
@@ -272,11 +297,11 @@
     font-size: 12px;
     margin: 8px 0 0;
   }
-  .received_withd_msg {float: left; width: 92%;}
+  .received_withd_msg {float: left; width: 80%;}
   .mesgs {
     float: left;
     padding: 30px 15px 0 25px;
-    width: 60%;
+    width: 70%;
   }
 
    .sent_msg p {
@@ -291,15 +316,18 @@
   }
   .outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
   .sent_msg {
-    float: right; width: 92%;
+    float: right; width: 80%;
     margin-right: -300px;
 
   }
 
-  .type_msg {border-top: 1px solid #c4c4c4;position: relative; max-height: 500px;}
+  .type_msg {position: relative; max-height: 500px;
+    width: 95%;
+  margin-left: 40px;
+  }
   .msg_send_btn {
 
-    background-color: #757575;
+
     font-size: 17px;
     height: 33px;
     position: absolute;
