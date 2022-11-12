@@ -65,7 +65,13 @@
                 <input  @keyup.enter="SaveMessage" v-model="message" type="text" class="text-white font-bold outline-none bg-transparent w-full h-full py-3 pl-3 text-base" placeholder="Type a message" />
                 <div>
                   <input style="display: none" ref="fileinput" type="file" @change="onFileChange">
-                  <img v-if="photo" :src="photo" @click="removeImage" class="">
+
+                  <Popup
+                  v-if="timedTrigger"
+                  :TogglePopup="TogglePopup">
+                    <img v-if="photo" :src="photo"  class=" max-h-96 max-w-xl ">
+		             </Popup>
+
                 </div>
                 <img class=" -left-10 -mt-9 cursor-pointer absolute "  src="@/assets/img/attach.png" @click="$refs.fileinput.click()">
                 <img @click="SaveMessage" src="@/assets/img/send.png" class="msg_send_btn  cursor-pointer  ">
@@ -77,15 +83,20 @@
       <FooterComponent/>
   </template>
   <script>
-    import FooterComponent from "../components/Footer.vue";
-    import firebase from 'firebase';
+
+  import Popup from '../components/Popup.vue';
+  import FooterComponent from "../components/Footer.vue";
+  import firebase from 'firebase';
   export default {
+
     name: 'realtimechat',
     components: {
-      FooterComponent
+      FooterComponent,
+      Popup
     },
     data(){
        return {
+        timedTrigger: false,
         photo: null,
         adsenseContent: '',
         active: false,
@@ -101,6 +112,10 @@
       this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     },
     methods:{
+      TogglePopup (){
+      this.timedTrigger= !this.timedTrigger
+
+      },
       onFileChange (e) {
         const files = e.target.files || e.dataTransfer.files
         if (!files.length) return
@@ -112,12 +127,13 @@
 
         reader.onload = (e) => {
           vm.photo = e.target.result
+          this.TogglePopup();
         }
         reader.readAsDataURL(file)
       },
-      removeImage (e) {
-        this.photo = null
-      },
+      // removeImage (e) {
+      //   this.photo = null
+      // },
       ToHome(){
         this.$router.push('/')
       }
