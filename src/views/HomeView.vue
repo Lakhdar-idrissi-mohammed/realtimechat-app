@@ -103,7 +103,7 @@
                 <div class="px-6">
                   <img
                     alt="..."
-                    src="../assets/img/Med.jpg"
+                    src="../assets/img/Med.png"
                     class="shadow-lg rounded-full max-w-full  mx-auto"
                     style="max-width: 120px;"
                   />
