@@ -6,7 +6,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import 'firebase/auth';
 import './index.css';
-
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // Required for side-effects
 require("firebase/firestore");

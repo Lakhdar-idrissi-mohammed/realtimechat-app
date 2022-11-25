@@ -55,6 +55,7 @@
               <div v-for="message in messages" >
                 <div  :class="[message.author==authUser.displayName?' sent_msg ':'received_withd_msg']">
                     <p>{{message.message}}</p>
+                    <!-- <img src="" id="myimg" alt=""> -->
                     <span class="time_date">{{message.author}},{{message.createdHours}}:{{message.createdMinutes}}</span>
 
                 </div>
@@ -68,13 +69,15 @@
 
                   <Popup
                   v-if="timedTrigger"
-                  :TogglePopup="TogglePopup">
-                    <img v-if="photo" :src="photo"  class=" max-h-96 max-w-xl ">
+                  :TogglePopup="TogglePopup"
+                  :removeImage="removeImage"
+                  >
+                    <img v-if="photo" :src="photopreview"  class=" max-h-96 max-w-xl ">
 		             </Popup>
 
                 </div>
                 <img class=" -left-10 -mt-9 cursor-pointer absolute "  src="@/assets/img/attach.png" @click="$refs.fileinput.click()">
-                <img @click="SaveMessage" src="@/assets/img/send.png" class="msg_send_btn  cursor-pointer  ">
+                <img @click="uploadAvatar()" src="@/assets/img/send.png" class="msg_send_btn  cursor-pointer  ">
             </div>
           </div>
         </div>
@@ -105,6 +108,7 @@
         authUser:[],
         lastmessage:null,
         lastmessages:[],
+        photopreview: null
        }
 
     },
@@ -112,6 +116,37 @@
       this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
     },
     methods:{
+      uploadAvatar() {
+      if (this.photo) {
+          const upload = firebase.storage().ref().child('images/' + '1').put(this.photo);
+        upload.on(
+          "state_changed",
+          null,
+          err => {
+            console.log("error", err.message);
+          },
+          () => {
+            upload.snapshot.ref.getDownloadURL().then(url => {
+              console.log(url);
+               // var img = document.getElementById('myimg');
+              // img.setAttribute('src', url);
+                this.SaveMessage();
+
+
+            });
+          }
+        );
+
+        this.TogglePopup();
+        this.removeImage();
+      } else
+      this.SaveMessage();
+    },
+      removeImage() {
+        this.photo = null;
+        this.photopreview= null;
+        console.log("no images");
+      },
       TogglePopup (){
       this.timedTrigger= !this.timedTrigger
 
@@ -119,21 +154,21 @@
       onFileChange (e) {
         const files = e.target.files || e.dataTransfer.files
         if (!files.length) return
-        this.createImage(files[0])
+        this.createImage(files[0]);
+        this.TogglePopup();
+        this.photo=(files[0])
+
       },
       createImage (file) {
         const reader = new FileReader()
         const vm = this
 
         reader.onload = (e) => {
-          vm.photo = e.target.result
-          this.TogglePopup();
+          vm.photopreview = e.target.result
         }
         reader.readAsDataURL(file)
       },
-      // removeImage (e) {
-      //   this.photo = null
-      // },
+
       ToHome(){
         this.$router.push('/')
       }
@@ -148,18 +183,18 @@
 
       },
       SaveMessage(){
-       if(this.message.trim()){
+
          db.collection('chat').add({
              message:this.message,
              createdAt: new Date(),
              createdHours: new Date().getHours(),
              createdMinutes: new Date().getMinutes(),
              author:this.authUser.displayName,
+             messageimg: null,
 
          }).then(()=>{
           this.scrollToBottom();
          })
-        }
          this.message=null;
       },
 
