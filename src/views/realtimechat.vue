@@ -183,7 +183,7 @@
 
       },
       SaveMessage(){
-
+        if(this.message.trim()){
          db.collection('chat').add({
              message:this.message,
              createdAt: new Date(),
@@ -195,6 +195,7 @@
          }).then(()=>{
           this.scrollToBottom();
          })
+        }
          this.message=null;
       },
 
